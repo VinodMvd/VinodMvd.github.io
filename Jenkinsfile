@@ -18,6 +18,8 @@ pipeline {
             steps{
                 sh 'docker login -u ${doc_cred_USR} -p ${doc_cred_PSW}'
                 sh 'docker push vinodmur/myportfolio:1.1'
+                sh 'sleep 5'
+                sh 'docker rmi vinodmur/myportfolio:1.1'
             }
         }
     }
