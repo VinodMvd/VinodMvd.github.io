@@ -11,13 +11,13 @@ pipeline {
         }
         stage ('BUILD DOC IMAGE') {
             steps {
-                sh 'docker build . -t vinodmur/myportfolio'
+                sh 'docker build . -t vinodmur/myportfolio:1.1'
             }
         }
         stage ('PUSH DOC IMAGE') {
             steps{
                 sh 'docker login -u ${doc_cred_USR} -p ${doc_cred_PSW}'
-                sh 'docker push vinodmur/myportfolio'
+                sh 'docker push vinodmur/myportfolio:1.1'
             }
         }
     }
